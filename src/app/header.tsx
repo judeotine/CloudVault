@@ -5,36 +5,67 @@ import {
   SignedIn,
   SignedOut,
   UserButton,
-  useSession,
 } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
 export function Header() {
   return (
-    <div className="relative z-10 border-b py-4 bg-gray-50">
-      <div className="items-center container mx-auto justify-between flex">
-        <Link href="/" className="flex gap-2 items-center text-xl text-black">
-          <Image src="/logo.png" width="50" height="50" alt="file drive logo" />
-          FileDrive
-        </Link>
+    <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-b border-gray-100 z-50">
+      <div className="container mx-auto px-4 py-2">
+        <nav className="flex items-center justify-between h-12">
+          {/* Logo Section */}
+          <Link 
+            href="/" 
+            className="flex items-center gap-2 text-lg font-semibold text-gray-900 hover:opacity-90 transition-opacity"
+          >
+            <Image 
+              src="/logo.png" 
+              width="32" 
+              height="32" 
+              alt="Cloud Vault logo"
+              className="w-auto h-7"
+            />
+            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Cloud Vault
+            </span>
+          </Link>
 
-        <SignedIn>
-          <Button variant={"outline"}>
-            <Link href="/dashboard/files">Your Files</Link>
-          </Button>
-        </SignedIn>
+          {/* Right Section */}
+          <div className="flex items-center gap-2">
+            <SignedIn>
+              <div className="flex items-center gap-2">
+                <OrganizationSwitcher 
+                  appearance={{
+                    elements: {
+                      rootBox: "flex items-center",
+                      organizationSwitcherTrigger: "flex items-center gap-2 px-2 py-1 rounded-md hover:bg-gray-50 transition-colors"
+                    }
+                  }}
+                />
+                <div className="h-5 w-[1px] bg-gray-200 mx-1"></div>
+                <UserButton 
+                  appearance={{
+                    elements: {
+                      avatarBox: "w-7 h-7 rounded-full"
+                    }
+                  }}
+                />
+              </div>
+            </SignedIn>
 
-        <div className="flex gap-2">
-          <OrganizationSwitcher />
-          <UserButton />
-          <SignedOut>
-            <SignInButton>
-              <Button>Sign In</Button>
-            </SignInButton>
-          </SignedOut>
-        </div>
+            <SignedOut>
+              <SignInButton>
+                <Button 
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 text-sm rounded-md transition-colors"
+                >
+                  Sign In
+                </Button>
+              </SignInButton>
+            </SignedOut>
+          </div>
+        </nav>
       </div>
-    </div>
+    </header>
   );
 }
