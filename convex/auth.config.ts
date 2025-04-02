@@ -1,7 +1,7 @@
 export default {
   providers: [
     {
-      domain: "https://poetic-salmon-66.clerk.accounts.dev",
+      domain: "https://fresh-camel-64.clerk.accounts.dev",
       applicationID: "convex",
     },
   ],
