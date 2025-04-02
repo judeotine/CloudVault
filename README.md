@@ -117,6 +117,7 @@
 - **Report vulnerabilities**: security@cloudvault.dev  
 - **Encryption**: Files are encrypted using AES-256.  
 - **Compliance**: GDPR-ready with data residency options.  
+
 ---
 
 ### **CloudVault – Store. Sync. Secure.** 🚀
