@@ -37,7 +37,7 @@ export default function LandingPage() {
             
             <p className="mt-8 text-xl leading-8 text-gray-600 max-w-2xl mx-auto">
               Make an account and start managing your files in less than a minute.
-              Simple, secure, and seamless sharing for your company.
+              Simple, secure and seamless sharing for your company.
             </p>
 
             <div className="mt-12 flex items-center justify-center gap-x-6">
